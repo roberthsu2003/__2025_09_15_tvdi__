@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}RWD 網頁樣板{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+</head>
+
+<body>
+    <header>
+        <h1>RWD 網頁樣板</h1>
+    </header>
+    <nav>
+        <button id="menu-toggle" class="menu-toggle" aria-label="選單">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <div class="nav-links">
+            <a href="#">首頁</a>
+            <a href="#">關於</a>
+            <a href="#">服務</a>
+            <a href="#">聯絡</a>
+        </div>
+    </nav>
+    
+    {% block content %}{% endblock %}
+
+    <footer>
+        &copy; 2024 Python Web Practice
+    </footer>
+    <script src="{{ url_for('static', filename='js/index.js') }}"></script>
+</body>
+
+</html>

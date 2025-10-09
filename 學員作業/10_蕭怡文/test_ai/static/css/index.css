@@ -1,0 +1,138 @@
+body {
+    margin: 0;
+    font-family: "Segoe UI", "微軟正黑體", Arial, sans-serif;
+    background: #f5f5f5;
+}
+
+header {
+    background: #1976d2;
+    color: #fff;
+    padding: 1rem;
+    text-align: center;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    background: #f8f8f8;
+    border-bottom: 1px solid #e6e6e6;
+}
+
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    position: relative;
+    z-index: 100;
+}
+
+.menu-toggle span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: #1976d2;
+    margin: 5px 0;
+    transition: transform 0.3s ease;
+}
+
+nav::before {
+    content: "RWD 網頁樣板";
+    font-weight: 700;
+    font-size: 1rem;
+    color: #222;
+    margin-right: auto;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+}
+
+nav a {
+    color: #1976d2;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 0.4rem 0.8rem;
+    border-radius: 4px;
+    transition: background-color 0.15s ease;
+}
+
+nav a:hover {
+    background-color: #eaeaea;
+}
+
+main {
+    max-width: 900px;
+    margin: 2rem auto;
+    background: #fff;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
+}
+
+footer {
+    text-align: center;
+    padding: 1rem;
+    background: #eee;
+    color: #666;
+    font-size: 0.9rem;
+}
+
+@media (max-width: 600px) {
+    main {
+        padding: 1rem;
+        margin: 1rem;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    nav {
+        justify-content: space-between;
+    }
+
+    .nav-links {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(255, 255, 255, 0.98);
+        flex-direction: column;
+        padding: 60px 20px 20px;
+        z-index: 90;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    nav::before {
+        margin-right: 0;
+    }
+
+    nav a {
+        padding: 1rem;
+        font-size: 1.2rem;
+        width: 100%;
+        text-align: center;
+    }
+
+    /* 漢堡選單動畫 */
+    .menu-toggle.active span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+    }
+
+    .menu-toggle.active span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .menu-toggle.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(7px, -7px);
+    }
+}

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Python機器學習課程{% endblock %}</title>
+    {# 使用 Flask 靜態資源 url_for 連結到 /static/css/styles.css #}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}?v=1">
+    <!-- 已移除內嵌 <style>，相關導覽列樣式已移至 static/css/index.css -->
+</head>
+<body>
+    <!-- 導覽列 -->
+    <nav class="navbar">
+        <div class="container">
+            <a class="navbar-brand" href="#">職能發展學院</a>
+            <ul class="nav-list">
+                <li class="nav-item">
+                    <a href="#" class="active">首頁1</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#">課程內容</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#">關於我們</a>
+                </li>
+            </ul>
+            <!-- 手機版導覽切換按鈕 -->
+            <button class="nav-toggle" aria-label="顯示導覽選單">
+                <svg class="hamburger-icon" viewBox="0 0 100 100" width="32" height="32">
+                    <rect class="line top" width="80" height="10" x="10" y="25" rx="5"></rect>
+                    <rect class="line middle" width="80" height="10" x="10" y="45" rx="5"></rect>
+                    <rect class="line bottom" width="80" height="10" x="10" y="65" rx="5"></rect>
+                </svg>
+            </button>
+        </div>
+    </nav>
+
+    <!-- 主要內容區 -->
+    <main class="container">
+        {% block content %}{% endblock %}
+    </main>
+
+    <!-- 頁尾 -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 職能發展學院. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- 載入手機版導覽的行為腳本 -->
+    <script src="{{ url_for('static', filename='js/index.js') }}"></script>
+</body>
+</html>

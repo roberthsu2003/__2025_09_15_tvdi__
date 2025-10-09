@@ -1,0 +1,218 @@
+/* 重置樣式 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* 基本樣式 */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+}
+
+/* 容器 */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+/* 導覽列 */
+.navbar {
+    background-color: #0B346E;
+    padding: 0.5rem 1rem;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navbar .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 60px;
+    padding: 0;
+    position: relative;
+}
+
+.navbar-brand {
+    color: white;
+    text-decoration: none;
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+
+/* 導覽列選單 */
+.nav-list {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 1.5rem;
+    align-items: center;
+}
+
+.nav-item a {
+    color: white;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    display: block;
+}
+
+.nav-item a:hover,
+.nav-item a.active {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* 漢堡選單按鈕 */
+.nav-toggle {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    z-index: 60;
+}
+
+.hamburger-icon {
+    width: 24px;
+    height: 24px;
+}
+
+.hamburger-icon .line {
+    fill: #ffffff;
+    transition: transform 0.3s ease;
+}
+
+/* 漢堡選單按鈕動畫 */
+.nav-toggle[aria-expanded="true"] .line.top {
+    transform: translateY(20px) rotate(45deg);
+}
+
+.nav-toggle[aria-expanded="true"] .line.middle {
+    opacity: 0;
+}
+
+.nav-toggle[aria-expanded="true"] .line.bottom {
+    transform: translateY(-20px) rotate(-45deg);
+}
+
+/* 主要內容區 */
+main {
+    padding: 2rem 0;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -15px;
+}
+
+.col-main {
+    flex: 2;
+    padding: 0 15px;
+}
+
+.col-sidebar {
+    flex: 1;
+    padding: 0 15px;
+}
+
+.card {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+}
+
+.lead {
+    font-size: 1.2rem;
+    margin: 1rem 0;
+}
+
+/* 頁尾 */
+footer {
+    background-color: #0B346E;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+    margin-top: 2rem;
+}
+
+/* 響應式設計 - 平板 */
+@media (max-width: 768px) {
+    .row {
+        flex-direction: column;
+    }
+    
+    .col-main,
+    .col-sidebar {
+        width: 100%;
+    }
+}
+
+/* 響應式設計 - 手機 */
+@media (max-width: 800px) {
+    .navbar {
+        padding: 0.5rem 1rem;
+    }
+
+    .navbar .container {
+        position: relative;
+    }
+
+    .nav-toggle {
+        display: flex;
+        position: absolute;
+        top: 50%;
+        right: 1rem;
+        transform: translateY(-50%);
+        background-color: rgba(255, 255, 255, 0.1);
+        border-radius: 8px;
+        padding: 0.5rem;
+        transition: background-color 0.3s ease;
+    }
+
+    .nav-toggle:hover {
+        background-color: rgba(255, 255, 255, 0.2);
+    }
+
+    .hamburger-icon {
+        width: 32px;
+        height: 32px;
+    }
+
+    .nav-list {
+        display: none !important;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background-color: #0B346E;
+        flex-direction: column;
+        padding: 0.5rem 0;
+        gap: 0;
+        margin-top: 0.5rem;
+        border-radius: 0 0 8px 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        z-index: 50;
+    }
+
+    .nav-list.open {
+        display: flex !important;
+    }
+
+    .nav-item {
+        width: 100%;
+    }
+
+    .nav-item a {
+        padding: 0.75rem 1rem;
+    }
+}
