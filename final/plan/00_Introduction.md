@@ -18,3 +18,13 @@
 - [第四階段：JavaScript 與 DOM 操作](./04_JavaScript_and_DOM.md)
 - [第五階段：數據視覺化 with Chart.js](./05_Data_Visualization_ChartJS.md)
 - [第六階段：前後端整合與專案完成](./06_Backend_Integration.md)
+
+---
+
+## JavaScript 程式碼說明書
+
+以下是針對專案中主要 JavaScript 檔案的詳細程式碼解說。
+
+- [通用腳本 `index.js` 說明](./js_docs_index.md)
+- [KNN 頁面腳本 `knn.js` 說明](./js_docs_knn.md)
+- [迴歸頁面腳本 `regression.js` 說明](./js_docs_regression.md)
