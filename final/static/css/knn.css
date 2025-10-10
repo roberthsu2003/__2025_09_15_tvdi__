@@ -1,0 +1,451 @@
+/* KNN 分類頁面樣式 */
+
+.knn-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+.page-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.page-header h1 {
+    color: #0B346E;
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.page-header .subtitle {
+    color: #666;
+    font-size: 1.1rem;
+}
+
+/* 資訊卡片 */
+.info-card {
+    background: #f8f9fa;
+    padding: 1.5rem;
+    border-radius: 10px;
+    margin-bottom: 2rem;
+    border-left: 4px solid #667eea;
+}
+
+.info-card h3 {
+    color: #0B346E;
+    margin-bottom: 1rem;
+}
+
+.info-card p {
+    line-height: 1.8;
+    color: #333;
+    margin-bottom: 0.8rem;
+}
+
+.info-card .highlight {
+    background: linear-gradient(135deg, #fff3cd 0%, #ffe69c 100%);
+    padding: 0.8rem 1rem;
+    border-radius: 5px;
+    border-left: 4px solid #ffc107;
+    margin-top: 1rem;
+    font-weight: 500;
+}
+
+/* 分類結果面板 */
+.classification-panel {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 2rem;
+    border-radius: 10px;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.classification-panel h3 {
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+}
+
+.classification-result {
+    background: rgba(255, 255, 255, 0.15);
+    padding: 1.5rem;
+    border-radius: 8px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    min-height: 150px;
+}
+
+.classification-result .placeholder {
+    text-align: center;
+    padding: 2rem;
+    opacity: 0.8;
+}
+
+.classification-result .placeholder p {
+    font-size: 1.2rem;
+    margin: 0;
+}
+
+.feature-display {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.feature-item {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 1rem;
+    border-radius: 6px;
+}
+
+.feature-item .label {
+    font-size: 0.9rem;
+    opacity: 0.8;
+    margin-bottom: 0.3rem;
+}
+
+.feature-item .value {
+    font-size: 1.3rem;
+    font-weight: bold;
+}
+
+.result-display {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 1.5rem;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.result-display .actual-label {
+    font-size: 1rem;
+    opacity: 0.9;
+    margin-bottom: 0.5rem;
+}
+
+.result-display .species-name {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #ffc107;
+    margin-bottom: 0.5rem;
+}
+
+.result-display .prediction-status {
+    font-size: 1rem;
+    margin-top: 0.5rem;
+}
+
+.result-display .prediction-status.correct {
+    color: #4caf50;
+}
+
+.result-display .prediction-status.wrong {
+    color: #ff5252;
+}
+
+/* 控制面板 - 簡化版 */
+.control-panel {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
+}
+
+.control-header h4 {
+    color: #0B346E;
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+}
+
+.k-control {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.k-control label {
+    font-weight: bold;
+    color: #0B346E;
+}
+
+/* K 值 Slider */
+.slider {
+    width: 300px;
+    height: 6px;
+    border-radius: 5px;
+    background: #ddd;
+    outline: none;
+    -webkit-appearance: none;
+}
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.slider::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    border: none;
+}
+
+.value-display {
+    min-width: 30px;
+    text-align: center;
+    font-weight: bold;
+    color: #667eea;
+    font-size: 1.2rem;
+}
+
+/* Loading 狀態 */
+.loading {
+    display: none;
+    text-align: center;
+    padding: 1rem;
+    margin-top: 1rem;
+}
+
+.loading.active {
+    display: block;
+}
+
+.spinner {
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #667eea;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+    margin: 0 auto 0.5rem;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* 圖表容器 */
+.chart-container {
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
+    position: relative;
+    height: 500px;
+}
+
+.chart-container canvas {
+    max-height: 100%;
+}
+
+/* 評估指標 - 簡化版 */
+.metrics-simple {
+    margin-bottom: 2rem;
+}
+
+.metric-card-simple {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 2rem;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.metric-icon {
+    font-size: 3rem;
+    opacity: 0.9;
+}
+
+.metric-content {
+    flex: 1;
+}
+
+.metric-content .metric-label {
+    font-size: 1rem;
+    opacity: 0.9;
+    margin-bottom: 0.5rem;
+}
+
+.metric-content .metric-value {
+    font-size: 2.5rem;
+    font-weight: bold;
+}
+
+.metric-card-simple .metric-description {
+    font-size: 0.9rem;
+    opacity: 0.8;
+    max-width: 200px;
+}
+
+/* 模型資訊 */
+.model-info {
+    background: #f8f9fa;
+    padding: 2rem;
+    border-radius: 10px;
+    margin-bottom: 2rem;
+}
+
+.model-info h3 {
+    color: #0B346E;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+}
+
+.info-item {
+    background: white;
+    padding: 1rem;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.info-label {
+    font-weight: bold;
+    color: #666;
+}
+
+.info-value {
+    color: #0B346E;
+    font-weight: bold;
+}
+
+/* 圖例說明 */
+.legend-info {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.legend-info h4 {
+    color: #0B346E;
+    margin-bottom: 1rem;
+}
+
+.legend-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem;
+    background: #f8f9fa;
+    border-radius: 5px;
+}
+
+.legend-dot {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.legend-symbols {
+    display: flex;
+    gap: 2rem;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+}
+
+.symbol-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.95rem;
+}
+
+.symbol-circle {
+    font-size: 1.5rem;
+    color: #667eea;
+}
+
+.symbol-triangle {
+    font-size: 1.5rem;
+    color: #4caf50;
+}
+
+.symbol-cross {
+    font-size: 1.5rem;
+    color: #f44336;
+}
+
+.help-text {
+    color: #666;
+    font-size: 0.9rem;
+    margin-top: 1rem;
+    font-style: italic;
+}
+
+/* 響應式設計 */
+@media (max-width: 768px) {
+    .page-header h1 {
+        font-size: 2rem;
+    }
+
+    .feature-display {
+        grid-template-columns: 1fr;
+    }
+
+    .legend-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .legend-symbols {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .k-control {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .slider {
+        width: 100%;
+    }
+
+    .chart-container {
+        height: 400px;
+        padding: 1rem;
+    }
+
+    .metric-card-simple {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .metric-card-simple .metric-description {
+        max-width: 100%;
+    }
+
+    .info-grid {
+        grid-template-columns: 1fr;
+    }
+}

@@ -1,0 +1,127 @@
+{% extends "base.html" %}
+
+{% block title %}線性迴歸 - Python機器學習課程{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/regression.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="regression-container">
+    <div class="page-header">
+        <h1>線性迴歸 (Linear Regression)</h1>
+        <p class="subtitle">使用加州房價資料集進行房價預測</p>
+    </div>
+
+    <!-- 資料集說明 -->
+    <div class="info-card">
+        <h3>關於資料集</h3>
+        <p><strong>加州房價資料集（California Housing Dataset）</strong>取自 1990 年加州人口普查資料，包含 200 個社區的房屋資訊。</p>
+        <p>本展示使用<strong>平均房間數</strong>來預測<strong>房價</strong>，讓你可以清楚看到線性迴歸如何找出特徵與目標值之間的線性關係。</p>
+        <p class="highlight">💡 <strong>互動提示</strong>：在下方輸入房間數，或點選圖表上的資料點，即可看到預測房價！</p>
+    </div>
+
+    <!-- 預測工具 -->
+    <div class="prediction-panel">
+        <h3>🏠 房價預測器</h3>
+        <div class="prediction-controls">
+            <div class="input-group">
+                <label for="rooms-input">輸入房間數：</label>
+                <input type="number" id="rooms-input" min="1" max="15" step="0.1" value="5.0" class="number-input">
+                <span class="unit">間</span>
+            </div>
+            <button id="predict-btn" class="btn-predict">預測房價</button>
+        </div>
+        <div id="prediction-result" class="prediction-result">
+            <div class="result-item">
+                <span class="result-label">預測房價：</span>
+                <span class="result-value" id="predicted-price">--</span>
+                <span class="result-unit">萬美元</span>
+            </div>
+            <div class="result-formula" id="formula-display"></div>
+        </div>
+    </div>
+
+    <!-- 控制面板 -->
+    <div class="control-panel">
+        <div id="loading" class="loading">
+            <div class="spinner"></div>
+            <p>載入中...</p>
+        </div>
+    </div>
+
+    <!-- 圖表區域 -->
+    <div class="chart-container">
+        <canvas id="regressionChart"></canvas>
+    </div>
+
+    <!-- 評估指標 -->
+    <div class="metrics-container">
+        <h3>模型評估指標</h3>
+        <div class="metrics-grid">
+            <div class="metric-card">
+                <div class="metric-label">R² 分數</div>
+                <div class="metric-value" id="r2-score">--</div>
+                <div class="metric-description">決定係數，越接近 1 表示模型越好</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-label">均方誤差 (MSE)</div>
+                <div class="metric-value" id="mse">--</div>
+                <div class="metric-description">預測值與實際值的平均誤差平方</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-label">均方根誤差 (RMSE)</div>
+                <div class="metric-value" id="rmse">--</div>
+                <div class="metric-description">MSE 的平方根，與目標值同單位</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-label">迴歸係數</div>
+                <div class="metric-value" id="coefficient">--</div>
+                <div class="metric-description">特徵的權重（斜率）</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 模型資訊 -->
+    <div class="model-info">
+        <h3>模型資訊</h3>
+        <div class="info-grid">
+            <div class="info-item">
+                <span class="info-label">資料集：</span>
+                <span class="info-value" id="dataset-name">--</span>
+            </div>
+            <div class="info-item">
+                <span class="info-label">總樣本數：</span>
+                <span class="info-value" id="total-samples">--</span>
+            </div>
+            <div class="info-item">
+                <span class="info-label">訓練集大小：</span>
+                <span class="info-value" id="train-size">--</span>
+            </div>
+            <div class="info-item">
+                <span class="info-label">測試集大小：</span>
+                <span class="info-value" id="test-size">--</span>
+            </div>
+            <div class="info-item">
+                <span class="info-label">預測目標：</span>
+                <span class="info-value" id="target-name">--</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- 圖例說明 -->
+    <div class="legend-info">
+        <h4>圖表說明</h4>
+        <ul>
+            <li><span class="legend-dot train"></span> 訓練資料點</li>
+            <li><span class="legend-dot test"></span> 測試資料點</li>
+            <li><span class="legend-line"></span> 線性迴歸線</li>
+        </ul>
+        <p class="help-text">將滑鼠移到資料點上可以看到詳細資訊</p>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{{ url_for('static', filename='js/regression.js') }}"></script>
+{% endblock %}

@@ -1,0 +1,133 @@
+{% extends "base.html" %}
+
+{% block title %}KNN 分類 - Python機器學習課程{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/knn.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="knn-container">
+    <div class="page-header">
+        <h1>K 近鄰演算法 (KNN)</h1>
+        <p class="subtitle">使用鳶尾花資料集進行物種分類</p>
+    </div>
+
+    <!-- 資料集說明 -->
+    <div class="info-card">
+        <h3>關於資料集</h3>
+        <p><strong>鳶尾花資料集（Iris Dataset）</strong>是機器學習領域最著名的資料集之一，由英國統計學家 Ronald Fisher 於 1936 年提出。</p>
+        <p>資料集包含 3 種鳶尾花品種（山鳶尾、變色鳶尾、維吉尼亞鳶尾）各 50 個樣本，每個樣本有 4 個特徵。</p>
+        <p class="highlight">💡 <strong>互動提示</strong>：點擊圖表上的任一資料點，即可看到該花朵的特徵和分類結果！</p>
+    </div>
+
+    <!-- 分類結果顯示面板 -->
+    <div class="classification-panel">
+        <h3>🌸 分類結果</h3>
+        <div class="classification-result" id="classification-result">
+            <div class="placeholder">
+                <p>👆 請點擊圖表上的資料點查看分類結果</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- K 值控制面板 -->
+    <div class="control-panel">
+        <div class="control-header">
+            <h4>調整 K 值觀察分類變化</h4>
+        </div>
+        <div class="k-control">
+            <label for="k-slider">K 值（鄰居數量）：</label>
+            <input type="range" id="k-slider" min="1" max="15" value="5" class="slider">
+            <span id="k-value" class="value-display">5</span>
+        </div>
+        <div id="loading" class="loading">
+            <div class="spinner"></div>
+            <p>載入中...</p>
+        </div>
+    </div>
+
+    <!-- 圖表區域 -->
+    <div class="chart-container">
+        <canvas id="knnChart"></canvas>
+    </div>
+
+    <!-- 評估指標 - 簡化版 -->
+    <div class="metrics-simple">
+        <div class="metric-card-simple">
+            <div class="metric-icon">✅</div>
+            <div class="metric-content">
+                <div class="metric-label">模型準確率</div>
+                <div class="metric-value" id="accuracy">--</div>
+            </div>
+            <div class="metric-description">在測試資料上的分類正確率</div>
+        </div>
+    </div>
+
+    <!-- 模型資訊 -->
+    <div class="model-info">
+        <h3>模型資訊</h3>
+        <div class="info-grid">
+            <div class="info-item">
+                <span class="info-label">資料集：</span>
+                <span class="info-value" id="dataset-name">--</span>
+            </div>
+            <div class="info-item">
+                <span class="info-label">總樣本數：</span>
+                <span class="info-value" id="total-samples">--</span>
+            </div>
+            <div class="info-item">
+                <span class="info-label">訓練集大小：</span>
+                <span class="info-value" id="train-size">--</span>
+            </div>
+            <div class="info-item">
+                <span class="info-label">測試集大小：</span>
+                <span class="info-value" id="test-size">--</span>
+            </div>
+            <div class="info-item">
+                <span class="info-label">類別數量：</span>
+                <span class="info-value" id="num-classes">--</span>
+            </div>
+            <div class="info-item">
+                <span class="info-label">當前 K 值：</span>
+                <span class="info-value" id="current-k">--</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- 圖例說明 -->
+    <div class="legend-info">
+        <h4>圖表說明</h4>
+        <div class="legend-grid">
+            <div class="legend-item">
+                <span class="legend-dot" style="background-color: rgba(255, 99, 132, 1);"></span>
+                <span>山鳶尾 (Setosa)</span>
+            </div>
+            <div class="legend-item">
+                <span class="legend-dot" style="background-color: rgba(54, 162, 235, 1);"></span>
+                <span>變色鳶尾 (Versicolor)</span>
+            </div>
+            <div class="legend-item">
+                <span class="legend-dot" style="background-color: rgba(75, 192, 192, 1);"></span>
+                <span>維吉尼亞鳶尾 (Virginica)</span>
+            </div>
+        </div>
+        <div class="legend-symbols">
+            <div class="symbol-item">
+                <span class="symbol-circle">●</span> 圓形 = 訓練資料
+            </div>
+            <div class="symbol-item">
+                <span class="symbol-triangle">▲</span> 三角形 = 測試資料（正確）
+            </div>
+            <div class="symbol-item">
+                <span class="symbol-cross">✕</span> 叉叉 = 測試資料（錯誤）
+            </div>
+        </div>
+        <p class="help-text">💡 點擊任一資料點查看詳細分類結果。調整 K 值可以觀察分類準確率的變化。</p>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{{ url_for('static', filename='js/knn.js') }}"></script>
+{% endblock %}

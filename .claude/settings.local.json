@@ -3,7 +3,12 @@
     "allow": [
       "Bash(npx:*)",
       "Bash(curl:*)",
-      "Bash(open:*)"
+      "Bash(open:*)",
+      "Bash(uv:*)",
+      "Bash(tree:*)",
+      "Bash(chmod:*)",
+      "Bash(python3:*)",
+      "Bash(pkill:*)"
     ],
     "deny": [],
     "ask": []

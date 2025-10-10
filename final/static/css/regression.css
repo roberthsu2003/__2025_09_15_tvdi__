@@ -1,0 +1,441 @@
+/* 線性迴歸頁面樣式 */
+
+.regression-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+.page-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.page-header h1 {
+    color: #0B346E;
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.page-header .subtitle {
+    color: #666;
+    font-size: 1.1rem;
+}
+
+/* 資訊卡片 */
+.info-card {
+    background: #f8f9fa;
+    padding: 1.5rem;
+    border-radius: 10px;
+    margin-bottom: 2rem;
+    border-left: 4px solid #667eea;
+}
+
+.info-card h3 {
+    color: #0B346E;
+    margin-bottom: 1rem;
+}
+
+.info-card p {
+    line-height: 1.8;
+    color: #333;
+    margin-bottom: 0.8rem;
+}
+
+.info-card .highlight {
+    background: linear-gradient(135deg, #fff3cd 0%, #ffe69c 100%);
+    padding: 0.8rem 1rem;
+    border-radius: 5px;
+    border-left: 4px solid #ffc107;
+    margin-top: 1rem;
+    font-weight: 500;
+}
+
+/* 預測面板 */
+.prediction-panel {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 2rem;
+    border-radius: 10px;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.prediction-panel h3 {
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+}
+
+.prediction-controls {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.input-group {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 0.8rem 1.2rem;
+    border-radius: 8px;
+}
+
+.input-group label {
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+.number-input {
+    width: 100px;
+    padding: 0.5rem;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    border-radius: 5px;
+    font-size: 1.1rem;
+    text-align: center;
+    font-weight: bold;
+    background: white;
+    color: #0B346E;
+}
+
+.number-input:focus {
+    outline: none;
+    border-color: #ffc107;
+}
+
+.unit {
+    font-weight: bold;
+    opacity: 0.9;
+}
+
+.btn-predict {
+    padding: 0.8rem 2rem;
+    background: #ffc107;
+    color: #0B346E;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.btn-predict:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.btn-predict:active {
+    transform: translateY(0);
+}
+
+.prediction-result {
+    background: rgba(255, 255, 255, 0.15);
+    padding: 1.5rem;
+    border-radius: 8px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.result-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+}
+
+.result-label {
+    font-weight: normal;
+    opacity: 0.9;
+}
+
+.result-value {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #ffc107;
+}
+
+.result-unit {
+    font-weight: normal;
+    opacity: 0.9;
+}
+
+.result-formula {
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.3);
+    font-family: 'Courier New', monospace;
+    font-size: 1rem;
+    opacity: 0.9;
+}
+
+/* 控制面板 */
+.control-panel {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
+}
+
+.control-group {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.control-group label {
+    font-weight: bold;
+    color: #0B346E;
+}
+
+.form-select {
+    padding: 0.5rem 1rem;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+    min-width: 200px;
+    cursor: pointer;
+    transition: border-color 0.3s ease;
+}
+
+.form-select:focus {
+    outline: none;
+    border-color: #667eea;
+}
+
+.btn-refresh {
+    padding: 0.5rem 1.5rem;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn-refresh:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.btn-refresh:active {
+    transform: translateY(0);
+}
+
+/* Loading 狀態 */
+.loading {
+    display: none;
+    text-align: center;
+    padding: 1rem;
+    margin-top: 1rem;
+}
+
+.loading.active {
+    display: block;
+}
+
+.spinner {
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #667eea;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+    margin: 0 auto 0.5rem;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* 圖表容器 */
+.chart-container {
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
+    position: relative;
+    height: 500px;
+}
+
+.chart-container canvas {
+    max-height: 100%;
+}
+
+/* 評估指標 */
+.metrics-container {
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
+}
+
+.metrics-container h3 {
+    color: #0B346E;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+}
+
+.metric-card {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 1.5rem;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.metric-label {
+    font-size: 0.9rem;
+    opacity: 0.9;
+    margin-bottom: 0.5rem;
+}
+
+.metric-value {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+.metric-description {
+    font-size: 0.85rem;
+    opacity: 0.8;
+    line-height: 1.4;
+}
+
+/* 模型資訊 */
+.model-info {
+    background: #f8f9fa;
+    padding: 2rem;
+    border-radius: 10px;
+    margin-bottom: 2rem;
+}
+
+.model-info h3 {
+    color: #0B346E;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+}
+
+.info-item {
+    background: white;
+    padding: 1rem;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.info-label {
+    font-weight: bold;
+    color: #666;
+}
+
+.info-value {
+    color: #0B346E;
+    font-weight: bold;
+}
+
+/* 圖例說明 */
+.legend-info {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.legend-info h4 {
+    color: #0B346E;
+    margin-bottom: 1rem;
+}
+
+.legend-info ul {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 1rem;
+}
+
+.legend-info li {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.legend-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.legend-dot.train {
+    background-color: rgba(102, 126, 234, 0.8);
+}
+
+.legend-dot.test {
+    background-color: rgba(237, 100, 166, 0.8);
+}
+
+.legend-line {
+    width: 30px;
+    height: 3px;
+    background-color: #f59e0b;
+    display: inline-block;
+}
+
+.help-text {
+    color: #666;
+    font-size: 0.9rem;
+    margin-top: 1rem;
+    font-style: italic;
+}
+
+/* 響應式設計 */
+@media (max-width: 768px) {
+    .page-header h1 {
+        font-size: 2rem;
+    }
+
+    .metrics-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .info-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .control-group {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .form-select {
+        width: 100%;
+    }
+
+    .chart-container {
+        height: 400px;
+        padding: 1rem;
+    }
+}

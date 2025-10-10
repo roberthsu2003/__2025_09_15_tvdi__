@@ -1,0 +1,129 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="hero-section">
+    <h1>歡迎來到機器學習世界</h1>
+    <p class="lead">探索 K 近鄰分類與線性迴歸的奧妙</p>
+    <p class="subtitle">透過互動式視覺化，深入理解機器學習演算法的運作原理</p>
+</div>
+
+<div class="algorithms-section">
+    <h2>機器學習演算法介紹</h2>
+
+    <!-- 線性迴歸卡片 -->
+    <div class="algorithm-card">
+        <div class="card-header">
+            <h3>線性迴歸 (Linear Regression)</h3>
+            <span class="badge">監督式學習</span>
+        </div>
+        <div class="card-body">
+            <h4>演算法原理</h4>
+            <p>線性迴歸是一種預測性分析方法，透過建立自變數和因變數之間的線性關係模型，來預測連續數值。其核心概念是找出一條最佳擬合直線（或超平面），使得預測值與實際值之間的誤差平方和最小化。</p>
+
+            <h4>適用場景</h4>
+            <ul>
+                <li>房價預測：根據房屋面積、地段等特徵預測房價</li>
+                <li>銷售預測：基於歷史資料預測未來銷售額</li>
+                <li>醫療診斷：根據生理指標預測疾病進展程度</li>
+                <li>股票分析：預測股票價格趨勢</li>
+            </ul>
+
+            <h4>優缺點分析</h4>
+            <div class="pros-cons">
+                <div class="pros">
+                    <strong>優點：</strong>
+                    <ul>
+                        <li>簡單易懂，計算效率高</li>
+                        <li>可解釋性強，能清楚看出特徵影響</li>
+                        <li>訓練速度快，適合大型資料集</li>
+                        <li>不易過度擬合</li>
+                    </ul>
+                </div>
+                <div class="cons">
+                    <strong>缺點：</strong>
+                    <ul>
+                        <li>僅能捕捉線性關係</li>
+                        <li>對離群值敏感</li>
+                        <li>假設特徵間獨立，實際上可能存在共線性</li>
+                        <li>無法處理複雜的非線性模式</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h4>實際應用案例</h4>
+            <p><strong>房地產領域：</strong>本展示使用加州房價資料集，透過「平均房間數」來預測房價。使用者可以輸入房間數量，或點選圖表上的任一資料點，立即看到模型預測的房價。這個簡單直觀的範例，清楚展示了線性迴歸如何找出特徵與目標值之間的線性關係，並進行即時預測。</p>
+
+            <div class="action-button">
+                <a href="{{ url_for('regression') }}" class="btn-primary">立即體驗線性迴歸 →</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- KNN 分類卡片 -->
+    <div class="algorithm-card">
+        <div class="card-header">
+            <h3>K 近鄰演算法 (K-Nearest Neighbors, KNN)</h3>
+            <span class="badge">監督式學習</span>
+        </div>
+        <div class="card-body">
+            <h4>演算法原理</h4>
+            <p>KNN 是一種基於實例的學習方法，其核心思想是「物以類聚」。當需要預測一個新樣本時，算法會找出訓練資料中最接近的 K 個鄰居，並根據這些鄰居的類別進行投票，選擇得票最多的類別作為預測結果。距離通常使用歐幾里得距離或曼哈頓距離計算。</p>
+
+            <h4>適用場景</h4>
+            <ul>
+                <li>圖像識別：人臉辨識、手寫數字辨識</li>
+                <li>推薦系統：根據相似用戶偏好推薦商品</li>
+                <li>文本分類：垃圾郵件過濾、情感分析</li>
+                <li>醫療診斷：根據症狀進行疾病分類</li>
+            </ul>
+
+            <h4>優缺點分析</h4>
+            <div class="pros-cons">
+                <div class="pros">
+                    <strong>優點：</strong>
+                    <ul>
+                        <li>簡單直觀，易於理解和實作</li>
+                        <li>無需訓練過程，屬於懶惰學習</li>
+                        <li>能處理非線性決策邊界</li>
+                        <li>對異常值不敏感（取決於 K 值）</li>
+                    </ul>
+                </div>
+                <div class="cons">
+                    <strong>缺點：</strong>
+                    <ul>
+                        <li>預測階段計算成本高（需計算所有距離）</li>
+                        <li>記憶體需求大（需存儲所有訓練資料）</li>
+                        <li>對特徵尺度敏感，需進行標準化</li>
+                        <li>K 值選擇影響結果，需仔細調整</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h4>實際應用案例</h4>
+            <p><strong>生物學領域：</strong>本展示使用經典的鳶尾花資料集，透過 4 個特徵（花萼長度、花萼寬度、花瓣長度、花瓣寬度）來分類 3 種鳶尾花品種（Setosa、Versicolor、Virginica）。這個案例展示了如何利用形態特徵進行物種分類，在植物學研究和生態保育中具有重要應用價值。</p>
+
+            <div class="action-button">
+                <a href="{{ url_for('knn') }}" class="btn-primary">立即體驗 KNN 分類 →</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="info-section">
+    <h2>為什麼選擇互動式學習？</h2>
+    <div class="features">
+        <div class="feature-item">
+            <h4>視覺化理解</h4>
+            <p>透過圖表直觀呈現演算法運作過程，將抽象概念具象化</p>
+        </div>
+        <div class="feature-item">
+            <h4>即時互動</h4>
+            <p>調整參數立即看到結果變化，深入理解參數對模型的影響</p>
+        </div>
+        <div class="feature-item">
+            <h4>真實資料</h4>
+            <p>使用 scikit-learn 經典資料集，體驗真實世界的機器學習應用</p>
+        </div>
+    </div>
+</div>
+{% endblock %}
