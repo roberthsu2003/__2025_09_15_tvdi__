@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}Python機器學習課程{% endblock %}</title>
     {# 使用 Flask 靜態資源 url_for 連結到 /static/css/styles.css #}
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}?v=1">
-    <!-- 已移除內嵌 <style>，相關導覽列樣式已移至 static/css/index.css -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}?v=1">
+    <!-- 導覽列與共用版型樣式整合於 static/css/base.css -->
 
     <!-- Chart.js CDN -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>

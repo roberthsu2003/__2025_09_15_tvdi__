@@ -1,5 +1,10 @@
 {% extends "base.html" %}
 
+{% block extra_css %}
+{{ super() }}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+{% endblock %}
+
 {% block content %}
 <div class="hero-section">
     <h1>歡迎來到機器學習世界</h1>
