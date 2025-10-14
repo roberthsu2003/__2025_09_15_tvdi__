@@ -16,14 +16,9 @@ def knn():
     return render_template("knn.html")
 
 @app.route("/lesson6_1")
-def lesson6_1():
-    page_tile = "我的首頁Robert"
-    users = [
-        {"name": "小明", "is_vip": True},
-        {"name": "小華", "is_vip": False},
-        {"name": "小英", "is_vip": True}
-    ]
-    return  render_template("lesson6_1.html",title=page_tile, user_list = users)
+def lesson6_1():    
+    return  render_template("lesson6_1.html")
+
 
 def main():
     """啟動應用（教學用：啟用 debug 模式）"""

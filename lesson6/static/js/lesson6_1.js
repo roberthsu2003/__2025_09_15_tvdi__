@@ -1,1 +1,6 @@
-console.log("嗨，我的 JavaScript 檔案被成功載入了！","我的名字叫Robert!")
+const myButton = document.querySelector('#changeTextBtn');
+const myParagraph = document.querySelector('#message');
+
+myButton.addEventListener('click',function(){
+    myParagraph.textContent = '哇！文字被改變了！'
+})

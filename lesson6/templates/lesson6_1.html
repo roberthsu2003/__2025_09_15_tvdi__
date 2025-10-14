@@ -9,11 +9,8 @@
 {% endblock %}
 
 {% block content %}
-<ul>
-{% for user in user_list %}
-    <li>{{ user["name"] }}</li>
-{% endfor %}
-</ul>
+<p id="message">這是一段原始的文字。</p>
+<button id="changeTextBtn">點我改變文字</button>
 
 {% endblock %}
 
